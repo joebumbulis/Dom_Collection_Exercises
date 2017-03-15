@@ -1,3 +1,5 @@
+console.log('Hello, World!');
+
 var results = [{
         "id": "1005535",
         "marketname": "0.5 SFC Farmers' Market Downtown"
@@ -56,3 +58,53 @@ var results = [{
         "id": "1008172",
         "marketname": "20.3 Round Rock Farmers Market"
     }]
+
+
+var arrayFarmInfo = results.map(function(item, i, arr) {
+  return item.marketname;
+});
+console.log(arrayFarmInfo);
+console.log(arrayFarmInfo[0]);
+
+var nearFarm = arrayFarmInfo.map(function(string, i, arr){
+  var split = string.split(" ");
+  console.log(split);
+  if (split[0] <= 10){
+    return split.splice(1);
+  }
+  //   var miles = split.pop()
+  //   var name = split.join(" ")
+  //   return split.join(' ');
+  //   console.log(name);
+  // }
+});
+
+console.log(nearFarm)
+var ul = document.querySelector('#marketnames')
+
+var farmNames = nearFarm.forEach(function(arrStr, i, arr){
+  var joined = arrStr.join(" ");
+  console.log(joined);
+  ul.innerHTML += '<li>'+joined+'</li>';
+})
+//iterate through the array of strings and place each string in an object with farmInfo as property;
+//split each string into an array of strings of each word
+//iterate through each
+
+
+
+// var nearFarms = arrayFarmInfo.filter(function(item, i, arr){
+//   return item.some(function(string, i, arr){
+//     return string[0] <= 10;
+//   })
+// })
+// console.log(nearFarms);
+//write a function that takes the array
+//take each string from the array & put each string into an object where there is a property called marketinfo & value of each string;
+// arrayFarmInfo.forEach(function(item, i, arr){
+//   var subStr = arrayFarmInfo.i.split(' ');
+//   console.log(subStr);
+// })
+//
+// var n1 = arrayFarmInfo[0].split(' ');
+// console.log(n1);
