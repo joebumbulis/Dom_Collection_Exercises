@@ -66,45 +66,33 @@ var arrayFarmInfo = results.map(function(item, i, arr) {
 console.log(arrayFarmInfo);
 console.log(arrayFarmInfo[0]);
 
-var nearFarm = arrayFarmInfo.map(function(string, i, arr){
-  var split = string.split(" ");
+var nearFarm = arrayFarmInfo.filter(function(str, i, arr){
+  var split = str.split(' ');
   console.log(split);
-  if (split[0] <= 10){
-    return split.splice(1);
-  }
-  //   var miles = split.pop()
-  //   var name = split.join(" ")
-  //   return split.join(' ');
-  //   console.log(name);
-  // }
-});
+  return split[0] <= 10;
+})
+console.log(nearFarm);
 
-console.log(nearFarm)
+var names = nearFarm.map(function(str, i, arr){
+  return str.slice(3);
+});
+console.log(names);
+
 var ul = document.querySelector('#marketnames')
 
-var farmNames = nearFarm.forEach(function(arrStr, i, arr){
-  var joined = arrStr.join(" ");
-  console.log(joined);
-  ul.innerHTML += '<li>'+joined+'</li>';
+names.forEach(function(arrStr, i, arr){
+  ul.innerHTML += '<li>'+arrStr+'</li>';
 })
-//iterate through the array of strings and place each string in an object with farmInfo as property;
-//split each string into an array of strings of each word
-//iterate through each
 
 
-
-// var nearFarms = arrayFarmInfo.filter(function(item, i, arr){
-//   return item.some(function(string, i, arr){
-//     return string[0] <= 10;
-//   })
-// })
-// console.log(nearFarms);
-//write a function that takes the array
-//take each string from the array & put each string into an object where there is a property called marketinfo & value of each string;
-// arrayFarmInfo.forEach(function(item, i, arr){
-//   var subStr = arrayFarmInfo.i.split(' ');
-//   console.log(subStr);
-// })
 //
-// var n1 = arrayFarmInfo[0].split(' ');
-// console.log(n1);
+// var nearFarm = arrayFarmInfo.map(function(string, i, arr){
+//   var split = string.split(" ");
+//   console.log(split);
+//   if (split[0] <= 10){
+//     return split.splice(1);
+//   }
+// });
+//
+// console.log(nearFarm)
+//
